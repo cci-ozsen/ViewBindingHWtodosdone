@@ -19,6 +19,9 @@ class NewActivity : AppCompatActivity() {
         val txtAge = intent.getStringExtra("age")
         val txtApprove = intent.getStringExtra("approve")
 
+
+        TODO("Burada senden asla null olmayan bir String istiyor ancak " +
+                "sen nullable olan bir String? veriyorsun buradaki hatayı düzeltmen lazım")
         binding.customView.bindData(
             txtName,txtAge,txtApprove
         )

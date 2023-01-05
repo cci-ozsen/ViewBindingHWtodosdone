@@ -15,9 +15,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        TODO("Edittext alanlarına girilen metinlerin değerlerini click eventinden sonra alman gerekiyor")
         var txtName = binding.editTextPersonName.text
         var txtAge = binding.editTextNumber.text
         var switchApprove: String = "0"
+        TODO("Switch durumu için 0 1 değil boolean kullanalım" +
+                "Switch için bir listenera gerek yok click anındaki durumunu kontrol etmek yeterli")
         binding.switchApprove.setOnCheckedChangeListener() {
             compoundbutton, state ->
             if (state) switchApprove = "1"
