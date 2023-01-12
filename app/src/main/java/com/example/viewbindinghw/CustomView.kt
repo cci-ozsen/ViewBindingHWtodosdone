@@ -29,10 +29,10 @@ class CustomView @JvmOverloads constructor(
         )
     }
 
-    fun bindData(name: String, age: String, approve: String) {
+    fun bindData(name: String, age: String, approve: Boolean) {
         binding.txtName.text = name
         binding.txtAge.text = age
-        if (approve == "1") {
+        if (approve) {
             Glide.with(this)
                 .load(R.drawable.greencheck)
                 .into(binding.imgSymbol)

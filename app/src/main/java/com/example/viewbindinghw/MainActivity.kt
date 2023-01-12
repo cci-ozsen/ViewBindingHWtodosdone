@@ -3,6 +3,7 @@ package com.example.viewbindinghw
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Switch
 import android.widget.Toast
 import com.example.viewbindinghw.databinding.ActivityMainBinding
 
@@ -15,25 +16,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var txtName: String
+        var txtAge: String
+        var switchApprove: Boolean
 
-        TODO("Edittext alanlarına girilen metinlerin değerlerini click eventinden sonra alman gerekiyor")
-        var txtName = binding.editTextPersonName.text
-        var txtAge = binding.editTextNumber.text
-        var switchApprove: String = "0"
-        TODO("Switch durumu için 0 1 değil boolean kullanalım" +
-                "Switch için bir listenera gerek yok click anındaki durumunu kontrol etmek yeterli")
-        binding.switchApprove.setOnCheckedChangeListener() {
-            compoundbutton, state ->
-            if (state) switchApprove = "1"
-        else switchApprove = "0"
-}
         binding.buttonClick.setOnClickListener() {
+            txtName = binding.editTextPersonName.text.toString()
+            txtAge = binding.editTextNumber.text.toString()
+            switchApprove = binding.switchApprove.isChecked
+
             if (txtName.isEmpty()) {
             Toast.makeText(this, "You need to enter your name", Toast.LENGTH_SHORT).show()
         } else if (txtAge.isEmpty()) {
                 Toast.makeText(this, "You need to enter your age", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "New Page is opening, please wait, ${switchApprove.toString()}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "New Page is opening, please wait", Toast.LENGTH_SHORT).show()
                 val intent: Intent = Intent(this, NewActivity::class.java)
                     .putExtra("name",txtName)
                     .putExtra("age",txtAge)
